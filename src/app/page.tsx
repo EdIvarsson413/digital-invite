@@ -1,6 +1,5 @@
-'use client'
-
 import { Mr_Dafoe } from "next/font/google"
+import Link from "next/link"
 
 const dafoe = Mr_Dafoe({ weight: '400', style: 'normal', subsets: ['latin']})
 
@@ -8,8 +7,8 @@ const dafoe = Mr_Dafoe({ weight: '400', style: 'normal', subsets: ['latin']})
 export default function Home () {
   return (
     <div>
-      <p className="text-shadow-lg shadow-stone-500 text-2xl">Font</p>
-      <p className={`${dafoe.className} text-4xl`}>Dafoe</p>
+      <p className={`${dafoe.className} text-8xl text-shadow-lg shadow-[#d29bfd]`}>Nombre</p>
+      <Link href={'/inviting'}>Abrir Invitacion</Link>
     </div>
   )
 }

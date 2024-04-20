@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Abyssinica_SIL } from "next/font/google";
 import "./globals.css";
+import Transition from "@/components/Transition"
 
 // New default font
 const abyss = Abyssinica_SIL({ subsets: ["latin"], weight: '400' });
@@ -18,7 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={abyss.className}>{children}</body>
+      <body className={abyss.className}>
+        <Transition>
+          { children }
+        </Transition>
+      </body>
     </html>
   );
 }
