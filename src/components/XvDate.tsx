@@ -15,28 +15,33 @@ export default function XvDate({ dafoe }: any) {
     
     useEffect(() => {
         const day = new Date('April 25, 2024 16:46:30').getTime();
-        // Get time now
-        const now = new Date().getTime();
-        const distance = day - now;
-
-        if( distance > 0 ) {
-            // Get respective numbers
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            setTimeCount({
-                days: days,
-                hours: hours,
-                minutes: minutes,
-                secons: seconds
-            })
-        } else {
-            // If the day has reached, it mark a flag
-            setDayReached( true );
-        }
-    }, [timeCount]);
+        const intervalId = setInterval(() => {
+            // Get time now
+            const now = new Date().getTime();
+            const distance = day - now;
+    
+            if (distance > 0) {
+                // Get respective numbers
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+                setTimeCount({
+                    days: days,
+                    hours: hours,
+                    minutes: minutes,
+                    secons: seconds
+                });
+            } else {
+                // If the day has reached, it mark a flag
+                clearInterval(intervalId);
+                setDayReached(true);
+            }
+        }, 1000);
+    
+        return () => clearInterval(intervalId);
+    }, []);
 
     return (
         <div className="md:w-[81%] md:mx-auto">

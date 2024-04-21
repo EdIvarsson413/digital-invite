@@ -1,4 +1,5 @@
 import { Mr_Dafoe } from "next/font/google"
+import { ReactElement } from "react"
 
 const dafoe = Mr_Dafoe({ weight: '400', style: 'normal', subsets: ['latin']})
 
