@@ -19,6 +19,17 @@ const config: Config = {
         DEFAULT: '0 2px 4px var(--tw-shadow-color)',
         lg: '0 8px 16px var(--tw-shadow-color)',
       },
+      animation: {
+        slide: 'wiggle 5s ease-in',
+      },
+      keyframes: {
+        wiggle: {
+          '0%': { opacity: '0',},
+          '10%': { opacity: '1' },
+          '90%': {},
+          '100%': { transform: 'scale(1.05)' },
+        }
+      }
     },
   },
   plugins: [

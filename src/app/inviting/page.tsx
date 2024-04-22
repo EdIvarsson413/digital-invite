@@ -5,6 +5,7 @@ import Date from "@/components/XvDate"
 import Maps from "@/components/Maps"
 import Generals from "@/components/Generals"
 import Memories from "@/components/Memories"
+import AttendanceForm from "@/components/AttendanceForm"
 
 const dafoe = Mr_Dafoe({ weight: '400', style: 'normal', subsets: ['latin']})
 
@@ -23,9 +24,10 @@ export default function Page() {
                     <Maps dafoe={dafoe}/>
                     <Generals dafoe={dafoe}/>
                     <Memories/>
+                    <AttendanceForm dafoe={dafoe}/>
 
                     {/* Spacer*: this auxiliar spacer is a last moment help for avoid move the image */}
-                    <p className="block mt-8 text-transparent">.</p>
+                    {/* <p className="block mt-8 text-transparent">.</p> */}
                 </main>
             </div>
         </>

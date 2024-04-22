@@ -18,7 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    // By default the screen displays like in mobile screen
+    <html lang="en" className="w-[768px] bg-stone-900 mx-auto">
       <body className={abyss.className}>
         <Transition>
           { children }
