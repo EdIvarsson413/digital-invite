@@ -20,14 +20,18 @@ const config: Config = {
         lg: '0 8px 16px var(--tw-shadow-color)',
       },
       animation: {
-        slide: 'wiggle 5s ease-in',
+        carousel: 'wiggle 5s ease-in',
+        dots: 'slidein 5s ease-in'
       },
       keyframes: {
         wiggle: {
           '0%': { opacity: '0',},
           '10%': { opacity: '1' },
-          '90%': {},
-          '100%': { transform: 'scale(1.05)' },
+          '90%': { transform: 'scale(1.05)' },
+          '100%': { transform: 'scale(1)' },
+        },
+        slidein: {
+          '0%': { transform: 'translateY(100px)' }
         }
       }
     },

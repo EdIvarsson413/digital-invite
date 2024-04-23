@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Abyssinica_SIL } from "next/font/google";
 import "./globals.css";
 import Transition from "@/components/Transition"
+import ToastProvider from "@/components/ui/ToastProvider"
 
 // New default font
 const abyss = Abyssinica_SIL({ subsets: ["latin"], weight: '400' });
@@ -20,9 +21,11 @@ export default function RootLayout({
   return (
     // By default the screen displays like in mobile screen
     <html lang="en" className="w-[768px] bg-stone-900 mx-auto">
-      <body className={abyss.className}>
+      <body id="root" className={abyss.className}>
         <Transition>
-          { children }
+          <ToastProvider>
+            { children }
+          </ToastProvider>
         </Transition>
       </body>
     </html>
