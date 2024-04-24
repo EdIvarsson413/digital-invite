@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Abyssinica_SIL } from "next/font/google";
 import "./globals.css";
-import Transition from "@/components/Transition"
+import Transition from "@/components/invitation/Transition"
 import ToastProvider from "@/components/ui/ToastProvider"
 
 // New default font
@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // By default the screen displays like in mobile screen
-    <html lang="en" className="w-[768px] bg-stone-900 mx-auto">
+    // By default the screen (md) displays like in mobile screen
+    <html lang="en" className="sm:w-full md:w-[768px] md:bg-stone-900 mx-auto">
       <body id="root" className={abyss.className}>
         <Transition>
           <ToastProvider>

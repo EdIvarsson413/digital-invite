@@ -1,11 +1,11 @@
 import { Mr_Dafoe } from "next/font/google"
-import Presentation from "@/components/Presentation"
-import Names from "@/components/Names"
-import Date from "@/components/XvDate"
-import Maps from "@/components/Maps"
-import Generals from "@/components/Generals"
-import Memories from "@/components/Memories"
-import AttendanceForm from "@/components/AttendanceForm"
+import Presentation from "@/components/invitation/Presentation"
+import Names from "@/components/invitation/Names"
+import Date from "@/components/invitation/XvDate"
+import Maps from "@/components/invitation/Maps"
+import Generals from "@/components/invitation/Generals"
+import Memories from "@/components/invitation/Memories"
+import AttendanceForm from "@/components/invitation/AttendanceForm"
 
 const dafoe = Mr_Dafoe({ weight: '400', style: 'normal', subsets: ['latin']})
 

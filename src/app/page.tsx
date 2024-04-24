@@ -1,4 +1,4 @@
-import Mapa from "@/components/Mapa"
+import Mapa from "@/components/invitation/Mapa"
 import { Mr_Dafoe } from "next/font/google"
 import Link from "next/link"
 

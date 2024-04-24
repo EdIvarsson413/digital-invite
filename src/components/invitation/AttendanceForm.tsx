@@ -12,7 +12,7 @@ export default function AttendanceForm({ dafoe }: any) {
     const [ errorName, setErrorName ] = useState <boolean> (false);
     const [ errorConfirmed, setErrorConfirmed ] =  useState <boolean> (false);
 
-    const handleSubmit = ( e: React.ChangeEvent< HTMLFormElement > ) => {
+    const handleSubmit = async ( e: React.ChangeEvent< HTMLFormElement > ) => {
         e.preventDefault();
 
         // Set Errors in case it passed
@@ -21,13 +21,27 @@ export default function AttendanceForm({ dafoe }: any) {
 
         // Validate form is not empty
         if( ![name,confirmed].includes('') ) {
-            // Get confirm (in boolean value)
-            const aux = confirmed === 'asistir'? true : false;
-            
-            // Send data to API n' get Response
+            try {
+                // Get confirm (in boolean value)
+                const aux = confirmed === 'asistir'? true : false;
+                
+                // Send data to API n' get Response
+                const response = await fetch( '/api', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        name: name, 
+                        confirmed: aux,
+                        message: message 
+                    })
+                })
 
-            console.log({name, aux, message})
-            // toast.success()
+                // Get JSON data n' send msg to user
+                const { msg } = await response.json();
+                toast.success(msg);
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
@@ -59,7 +73,7 @@ export default function AttendanceForm({ dafoe }: any) {
                         onChange={ (e) => setConfirmed( e.target.value ) }
                         onClick={ (e) => setErrorConfirmed(false) }
                     >
-                        <option value="default" disabled className="">Confirmo Que:</option>
+                        <option value="default" disabled selected className="">Confirmo Que:</option>
                         <option value="asistir" className="bg-black bg-opacity-50">Asistire</option>
                         <option value="no asistir" className="bg-black bg-opacity-50">No asistire</option>
                     </select>
@@ -82,8 +96,6 @@ export default function AttendanceForm({ dafoe }: any) {
                     </button>
                 </fieldset>
             </form>
-            
-            
         </div>
     )
 }

@@ -1,9 +1,9 @@
 'use client'
 import Image from "next/image"
-import Title from "./ui/Title"
+import Title from "../ui/Title"
 import { useEffect, useState } from "react"
-import ArrowLeft from "./ui/ArrowLeft"
-import ArrowRight from "./ui/ArrowRight"
+import ArrowLeft from "../ui/ArrowLeft"
+import ArrowRight from "../ui/ArrowRight"
 
 export default function Memories() {
     const [currentImage, setCurrentImage] = useState(0); // For help in the automatic change of image
