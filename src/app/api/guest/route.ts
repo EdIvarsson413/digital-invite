@@ -1,3 +1,6 @@
+import prisma from "@/lib/prisma"
+import { nanoid } from "nanoid"
+
 interface Body {
     name: string
     confirmed: boolean
@@ -6,11 +9,8 @@ interface Body {
 
 interface GuestConfirmed extends Body {
     confirmedDate: string
+    nanouuid: string
 }
-
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient();
 
 // Convert date got from database to normal date
 const formatDate = ( dateString: string ) => {
@@ -33,6 +33,7 @@ const GET = async () => {
 
         for( var listItem of list ) {
             newList.push({ 
+                nanouuid: listItem.nanouuid,
                 name: listItem.name,
                 confirmed: listItem.confirmed,
                 message: listItem.message,
@@ -60,6 +61,7 @@ const POST = async ( request: Request ) => {
         await prisma.guest.create({
             data: {
                 name: name,
+                nanouuid: nanoid(20),
                 confirmed: confirmed,
                 message: message
             }
@@ -74,4 +76,17 @@ const POST = async ( request: Request ) => {
     }
 }
 
-export { GET, POST }
+const DELETE = async () => {
+    try {
+        await prisma.guest.deleteMany()
+    } catch (error) {
+        console.log(error)
+    } finally {
+        prisma.$disconnect()
+    }
+
+
+    return Response.json({ msg: 'msg'})
+}
+
+export { GET, POST, DELETE }

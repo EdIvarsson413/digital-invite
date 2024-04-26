@@ -26,7 +26,7 @@ export default function AttendanceForm({ dafoe }: any) {
                 const aux = confirmed === 'asistir'? true : false;
                 
                 // Send data to API n' get Response
-                const response = await fetch( '/api', {
+                const response = await fetch( '/api/guest', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
