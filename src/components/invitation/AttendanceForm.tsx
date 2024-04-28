@@ -1,11 +1,12 @@
 'use client'
+import ClientService from "@/services/ClientService";
 import { useState } from "react"
 import { toast } from "react-toastify"
 
 export default function AttendanceForm({ dafoe }: any) {
     // Form state
     const [ name, setName ] = useState <string> ('');
-    const [ confirmed, setConfirmed ] = useState <string> ('');
+    const [ confirmed, setConfirmed ] = useState <string> ('asistir');
     const [ message, setMessage ] = useState <string> ('');
 
     // Errors state
@@ -14,10 +15,11 @@ export default function AttendanceForm({ dafoe }: any) {
 
     const handleSubmit = async ( e: React.ChangeEvent< HTMLFormElement > ) => {
         e.preventDefault();
-
+        console.log(confirmed, name, message)
         // Set Errors in case it passed
         if( name === '' ) { setErrorName( true ) }
         if( confirmed === '' ) { setErrorConfirmed( true ) }
+        // else if( confirmed === 'default' ) { console.log(confirmed); return }
 
         // Validate form is not empty
         if( ![name,confirmed].includes('') ) {
@@ -26,15 +28,7 @@ export default function AttendanceForm({ dafoe }: any) {
                 const aux = confirmed === 'asistir'? true : false;
                 
                 // Send data to API n' get Response
-                const response = await fetch( '/api/guest', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        name: name, 
-                        confirmed: aux,
-                        message: message 
-                    })
-                })
+                const response = await ClientService.registerGuest( name, aux, message );
 
                 // Get JSON data n' send msg to user
                 const { msg } = await response.json();
@@ -72,8 +66,9 @@ export default function AttendanceForm({ dafoe }: any) {
                                     ${ errorConfirmed? 'animate-bounce ring-4 ring-red-600 bg-red-600' : '' }`}
                         onChange={ (e) => setConfirmed( e.target.value ) }
                         onClick={ (e) => setErrorConfirmed(false) }
+                        defaultValue={confirmed}
                     >
-                        <option value="default" disabled selected className="">Confirmo Que:</option>
+                        <option value="default" disabled className="">Confirmo Que:</option>
                         <option value="asistir" className="bg-black bg-opacity-50">Asistire</option>
                         <option value="no asistir" className="bg-black bg-opacity-50">No asistire</option>
                     </select>

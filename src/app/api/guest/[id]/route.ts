@@ -19,6 +19,8 @@ const PUT = async ( request: Request, { params }: { params: { id: string } } ) =
                     confirmed: !confirmedFetch.confirmed
                 }
             })
+
+            return Response.json({ msg: 'Confirmación Modificada' })
         } else 
             return Response.json({ msg: 'El Invitado No Existe' })
 

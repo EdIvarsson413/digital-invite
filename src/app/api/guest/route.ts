@@ -10,6 +10,7 @@ interface Body {
 interface GuestConfirmed extends Body {
     confirmedDate: string
     nanouuid: string
+    originalDate: Date
 }
 
 // Convert date got from database to normal date
@@ -39,7 +40,8 @@ const GET = async () => {
                 message: listItem.message,
 
                 // Get creation date of confirmation n' convert
-                confirmedDate: formatDate( listItem.createdAt.toString() )
+                confirmedDate: formatDate( listItem.createdAt.toString() ),
+                originalDate: listItem.createdAt
             })
         }
 

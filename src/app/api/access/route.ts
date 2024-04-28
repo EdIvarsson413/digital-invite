@@ -1,7 +1,6 @@
 import bcrypt from 'bcrypt'
 import { nanoid } from 'nanoid'
 import prisma from '../../../../src/lib/prisma'
-import { error } from 'console';
 
 // Function to hash the unique password in site
 const hashPassword = async ( password: string ) => {
@@ -31,7 +30,7 @@ const POST = async ( request: Request ) => {
 
         // Password still exist?
         let authenticated: boolean;
-        if( access ){
+        if( access ) {
             // Compare passwords n' give response
             authenticated = await matchPassword( pass, access?.password );
             return Response.json({ authenticated })
@@ -70,7 +69,7 @@ const PUT = async ( request: Request ) => {
                         password: await hashPassword( newPassword )
                     }
                 })
-                return Response.json({ msg: 'Contraseña Cambiada' })
+                return Response.json({ error: false, msg: 'Contraseña Cambiada' })
             } else 
                 return Response.json({ error: true, msg: 'Las Contraseñas No Coinciden' })
             
