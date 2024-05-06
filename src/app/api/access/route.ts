@@ -13,10 +13,6 @@ const matchPassword = async ( password: string, originalPassword: string ) => {
     return await bcrypt.compare( password, originalPassword );
 }
 
-const GET = async () => {
-    return Response.json({ hash: nanoid(10) })
-}
-
 // "Login"
 const POST = async ( request: Request ) => {
     const { password: pass } = await request.json();
@@ -83,18 +79,5 @@ const PUT = async ( request: Request ) => {
     }
 }
 
-const DELETE = async () => {
-    try {
-        await prisma.access.delete({
-            where: { id: 1 }
-        })
-    } catch (error) {
-        
-    } finally {
-        prisma.$disconnect()
-    }
 
-    return Response.json({ msg: 'Hello' })
-}
-
-export { GET, POST, PUT }
+export { POST, PUT }

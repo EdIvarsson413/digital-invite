@@ -59,7 +59,7 @@ export default function Main( { dafoe }: Props ) {
     }
 
     return (
-        <>
+        <div onContextMenu={ (e) => e.preventDefault() }>
             <Header/>
 
             <main className="min-h-screen">
@@ -71,7 +71,7 @@ export default function Main( { dafoe }: Props ) {
                             {/* Filter */}
                             <Filter setFilter={setFilter}/>
                             
-                            <article className={`${invitees.length > 4 && 'h-[680px] overflow-y-scroll'} mx-auto w-10/12 grid grid-cols-1 mt-8 gap-4`}>
+                            <article className={`${dateFilter().length > 4 && 'h-[680px] overflow-y-scroll'} mx-auto w-10/12 grid grid-cols-1 mt-8 gap-4`}>
                                 {
                                     dateFilter().map( ( guest: Guest) => (
                                         <Guest 
@@ -88,6 +88,6 @@ export default function Main( { dafoe }: Props ) {
                     )
                 }
             </main>
-        </>
+        </div>
     )
 }

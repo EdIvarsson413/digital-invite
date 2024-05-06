@@ -1,6 +1,7 @@
 /* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
 const url = process.env.NEXT_PUBLIC_BACKEND_URL
 
+// Object that contains request api functions
 export default {
     registerGuest( name: string, confirmed: boolean, message: string ) {
         return fetch( `${url}/api/guest`, {

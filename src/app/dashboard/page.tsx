@@ -17,16 +17,19 @@ export default function Dashboard() {
     }, [])
 
     return (
-        <div className="bg-[url(/textura_1.jpg)] bg-cover">
-            {
-                !authenticated? (
-                    <InputPassword
-                        setAuthenticated={setAuthenticated}
-                    />
-                ) : (
-                    <Main dafoe={dafoe}/>
-                )
-            }
+        <div className="bg-[url(/textura_1.jpg)] bg-cover" onContextMenu={ (e) => e.preventDefault() }>
+            <div className="bg-white bg-opacity-40">
+                {/* Show the correspont component */}
+                {
+                    !authenticated? (
+                        <InputPassword
+                            setAuthenticated={setAuthenticated}
+                        />
+                    ) : (
+                        <Main dafoe={dafoe}/>
+                    )
+                }
+            </div>
         </div>
     )
 }

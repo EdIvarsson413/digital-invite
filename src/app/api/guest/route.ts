@@ -78,17 +78,4 @@ const POST = async ( request: Request ) => {
     }
 }
 
-const DELETE = async () => {
-    try {
-        await prisma.guest.deleteMany()
-    } catch (error) {
-        console.log(error)
-    } finally {
-        prisma.$disconnect()
-    }
-
-
-    return Response.json({ msg: 'msg'})
-}
-
-export { GET, POST, DELETE }
+export { GET, POST }

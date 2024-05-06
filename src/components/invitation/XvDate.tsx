@@ -1,8 +1,5 @@
 'use client'
-
 import { useEffect, useState } from "react"
-
-// Final day
 
 export default function XvDate({ dafoe }: any) {
     const [ dayReached, setDayReached ] = useState(false);
@@ -14,7 +11,7 @@ export default function XvDate({ dafoe }: any) {
     })
     
     useEffect(() => {
-        const day = new Date('April 25, 2024 16:46:30').getTime();
+        const day = new Date('June 1, 2024 16:46:30').getTime();
         const intervalId = setInterval(() => {
             // Get time now
             const now = new Date().getTime();
@@ -44,18 +41,12 @@ export default function XvDate({ dafoe }: any) {
     }, []);
 
     return (
-        <div className="md:w-[81%] md:mx-auto">
-            <div className="w-full h-[500px] bg-purple-400">
-                <div className={`${dafoe.className} text-5xl`}>
-                    {
-                        dayReached ? (
-                            <p>¡Es Hoy!</p>) : (
-                            <>
-                                <p>Faltan</p>
-                                <p className="block">{timeCount.days} días &nbsp;{timeCount.hours} hrs &nbsp;{timeCount.minutes} min &nbsp;{timeCount.secons} segs</p>
-                            </>
-                        )
-                    }
+        <div className="" onContextMenu={ (e) => e.preventDefault() }>
+            <div className="bg-[url(/xv/imgs/countdown.jpg)] h-[400px] bg-clip-content">
+                {/* Place text in bottom-middle position */}
+                <div className={`${dafoe.className} grid grid-cols-1 justify-items-center content-end h-[300px] text-5xl text-white text-shadow-[0px_0px_30px_#fff]`}>
+                    <p className="text-3xl">Faltan</p>
+                    <p className="block">{timeCount.days} días &nbsp;{timeCount.hours} hrs &nbsp;{timeCount.minutes} min &nbsp;{timeCount.secons} segs</p>
                 </div>
             </div>
         </div>

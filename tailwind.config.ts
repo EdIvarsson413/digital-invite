@@ -9,11 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // backgroundImage: {
-      //   "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-      //   "gradient-conic":
-      //     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      // },
       textShadow: {
         sm: '0 1px 2px var(--tw-shadow-color)',
         DEFAULT: '0 2px 4px var(--tw-shadow-color)',
@@ -21,7 +16,6 @@ const config: Config = {
       },
       animation: {
         carousel: 'wiggle 5s ease-in',
-        dots: 'slidein 5s ease-in'
       },
       keyframes: {
         wiggle: {
@@ -30,9 +24,6 @@ const config: Config = {
           '90%': { transform: 'scale(1.05)' },
           '100%': { transform: 'scale(1)' },
         },
-        slidein: {
-          '0%': { transform: 'translateY(100px)' }
-        }
       }
     },
   },

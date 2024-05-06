@@ -1,3 +1,4 @@
+'use client'
 import { Mr_Dafoe } from "next/font/google"
 import Presentation from "@/components/invitation/Presentation"
 import Names from "@/components/invitation/Names"
@@ -11,9 +12,16 @@ const dafoe = Mr_Dafoe({ weight: '400', style: 'normal', subsets: ['latin']})
 
 export default function Page() {
     return (
-        <>
-            <div className="bg-[url(/textura_1.jpg)] bg-cover">
-                <main className="mx-auto relative">
+        <div className="bg-[url(/textura_2.jpg)]">
+            <div className=" bg-white bg-opacity-40">
+                <main className="mx-auto">
+
+                    {/* Play song */}
+                    <audio autoPlay={true}>
+                        <source src="/xv/veo_en_ti.mp3" type="audio/mpeg"/>
+                        Si ves esto, tu navegador no puede reproducir la canción de fondo.
+                    </audio>
+                    
                     {/* Spacer** */}
                     <p className="block mb-8 text-transparent">.</p>
 
@@ -25,11 +33,8 @@ export default function Page() {
                     <Generals dafoe={dafoe}/>
                     <Memories/>
                     <AttendanceForm dafoe={dafoe}/>
-
-                    {/* Spacer*: this auxiliar spacer is a last moment help for avoid move the image */}
-                    {/* <p className="block mt-8 text-transparent">.</p> */}
                 </main>
             </div>
-        </>
+        </div>
     )
 }
