@@ -4,7 +4,7 @@ export default function Names({ dafoe }: any) {
     return (
         <div onContextMenu={ (e) => e.preventDefault() }>
             <Title title="Mis  &nbsp;XV  &nbsp;Años"/>
-            <p className="text-center text-2xl mt-2 text-shadow-sm shadow-purple-500 w-[550px] mx-auto">
+            <p className="text-center text-2xl mt-2 text-shadow-sm shadow-purple-500 ">
                 Hoy queda en el recuerdo mi niñez, pero hoy renazco para vivir el momento más feliz de mi vida: mi adolecencia.
                 Quisiera que estés junto a mi para que compartamos mis 15 años.
             </p>

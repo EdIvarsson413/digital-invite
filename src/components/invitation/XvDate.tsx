@@ -42,9 +42,9 @@ export default function XvDate({ dafoe }: any) {
 
     return (
         <div className="" onContextMenu={ (e) => e.preventDefault() }>
-            <div className="bg-[url(/xv/imgs/countdown.jpg)] h-[400px] bg-clip-content">
+            <div className="countdown md:bg-[url(/xv/imgs/countdown.jpg)] h-[400px] bg-cover">
                 {/* Place text in bottom-middle position */}
-                <div className={`${dafoe.className} grid grid-cols-1 justify-items-center content-end h-[300px] text-5xl text-white text-shadow-[0px_0px_30px_#fff]`}>
+                <div className={`${dafoe.className} grid grid-cols-1 justify-items-center content-end h-[300px] text-center text-5xl text-white text-shadow-[0px_0px_30px_#fff]`}>
                     <p className="text-3xl">Faltan</p>
                     <p className="block">{timeCount.days} días &nbsp;{timeCount.hours} hrs &nbsp;{timeCount.minutes} min &nbsp;{timeCount.secons} segs</p>
                 </div>

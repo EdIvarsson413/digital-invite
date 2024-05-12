@@ -11,7 +11,7 @@ export default function Generals({ dafoe }: any) {
             </p>
 
             <p className={`${dafoe.className} text-shadow shadow-black text-center text-5xl mt-16`}>Regalos</p>
-            <p className="text-center text-2xl mt-2 text-shadow-sm shadow-purple-500 w-[550px] mx-auto">
+            <p className="text-center text-2xl mt-2 text-shadow-sm shadow-purple-500">
                 Gracias por multiplicar la alegría de mi corazón con tu amor, tus amables regalos y tu presencia en mi vida.
             </p>
             
@@ -23,6 +23,7 @@ export default function Generals({ dafoe }: any) {
                 <Link
                     href={"https://www.instagram.com/explore/tags/misxvdiana/"}
                     className="border-2 border-white text-xl px-3 py-1 rounded-full hover:text-shadow hover:shadow-lg shadow-black transition-all duration-200"
+                    target="_blank"
                 >
                     Abrir en Instagram
                 </Link>

@@ -46,7 +46,7 @@ export default function AttendanceForm({ dafoe }: any) {
     }
 
     return (
-        <div className="bg-[url(/xv/imgs/form.jpg)] bg-cover" onContextMenu={ (e) => e.preventDefault() }>
+        <div className="form md:bg-[url(/xv/imgs/form.jpg)] bg-cover" onContextMenu={ (e) => e.preventDefault() }>
             <form className="px-8 py-4" onSubmit={ handleSubmit }>
                 <h3>
                     <p className={`${dafoe.className} text-5xl text-shadow shadow-black text-center text-white`}>Confirma Tu Asistencia</p>

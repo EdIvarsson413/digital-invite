@@ -59,7 +59,7 @@ export default function Memories() {
                 </div>
 
                 {/* Index of images */}
-                <div className={`flex gap-2 justify-center my-2 w-2/12 p-2 rounded-md mx-auto bg-purple-900`}>
+                <div className={`flex gap-5 justify-center my-2 w-2/12 p-2 rounded-md mx-auto bg-purple-900`}>
                     {
                         images.map( ( image, index ) => (
                             <p key={index} className={`${ index === currentImage? 'bg-purple-400' : 'bg-purple-400 bg-opacity-30' } rounded-full w-3 h-3`}></p>
